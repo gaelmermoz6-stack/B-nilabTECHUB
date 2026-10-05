@@ -6,6 +6,8 @@ const envSchema = z.object({
   NEXTAUTH_URL: z.string().url().optional().or(z.literal("")),
   NEXTAUTH_SECRET: z.string().min(1).default("development-secret-change-me"),
   AUTH_SECRET: z.string().min(1).default("development-secret-change-me"),
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().optional(),
+  CLERK_SECRET_KEY: z.string().optional(),
 });
 
 export const env = envSchema.parse(process.env);
